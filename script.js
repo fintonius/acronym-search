@@ -23,6 +23,7 @@ async function searchAcronym() {
     try {
         const res = await fetch('./db.json');
         const data = await res.json();
+        // confirm I'm actually connecting with db.json!
         console.table(data);
     } catch (error) {
         console.error('There was an error fetching the data:', error);
