@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>UK Government Acronym Search</title>
+</head>
+<body>
+    <main>
+        <h1>UK Government Acronym Search</h1>
+        <p>Enter the acronym you are searching for in the box below and press enter</p>
+        <!-- use a form for the user input. When button is clicked it can trigger
+         a function to take the input text and search for it against the db data -->
+        <form>
+            <label for="acronym-input">
+                <span>Acronym Search</span>
+                <input id="acronym-input" required type="text" />
+            </label>
+            <button id="submit-acronym">Search</button>
+        </form>
+        <!-- return the answer from the search here. -->
+        <p>Search results:</p>
+        <p id="acronym-result"></p>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
