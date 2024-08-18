@@ -11,3 +11,10 @@ User stories:
  - An autocomplete is available on the search box, so that as a user begins to type
  acronyms that match the letters they entered are presented in a dropdown
  - Partial matching is available (e.g. if a user searches for "DC", results are returned for both "DCMS" and "DCLG")
+
+ Process:
+ - create a form to capture user's input
+ - have a function that searches for the input in the keys of db.json
+ - return the results of any matches as a string
+ - display the search results on the web-page
+ - if there are no matches have a default reply to display
