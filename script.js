@@ -2,6 +2,7 @@ const submitButton = document.getElementById('submit-acronym');
 const acronymInput = document.getElementById('acronym-input');
 const acronymResult = document.getElementById('acronym-result');
 const acronymSearchForm = document.getElementById('acronym-search-form');
+const acronymSuggestions = document.getElementById('acronym-suggestions');
 let acronym = '';
 
 // Need to refactor capturing user input, capturing user's input "live" was causing 
@@ -16,6 +17,11 @@ acronymSearchForm.addEventListener('submit', (e) => {
 
 submitButton.addEventListener('click', searchAcronym);
 
+// capture user input for autocomplete suggestions
+acronymInput.addEventListener('input', function (e) {
+    console.log(e.data);
+
+})
 
 async function searchAcronym() {
     console.log('this is acronym', acronym);
@@ -74,10 +80,3 @@ async function searchAcronym() {
 //     console.log(`this didn't work`)
 // }
 
-// acronymInput.addEventListener('submit', function (e) {
-//     console.log(e.data);
-//     // non-character keys like 'delete' were being picked up as 
-//     if(e.data) {
-//         acronym += e.data;
-//     }
-// })
