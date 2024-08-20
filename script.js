@@ -4,19 +4,18 @@ const acronymResult = document.getElementById('acronym-result');
 const acronymSearchForm = document.getElementById('acronym-search-form');
 let acronym = '';
 
-// stop the form reloading the page when the submit button is clicked
-acronymSearchForm.addEventListener('submit', (e) => e.preventDefault());
+// Need to refactor capturing user input, capturing user's input "live" was causing 
+// issues with the search acronym, everything was being caught! 
+acronymSearchForm.addEventListener('submit', (e) => {
+    // stop the form reloading the page when the submit button is clicked
+    e.preventDefault()
+    // pass the input value to acronym
+    acronym = acronymInput.value;
+    console.log('user input ', acronym);
+});
 
 submitButton.addEventListener('click', searchAcronym);
 
-// capturing user's input "live", might help with doing the autocomplete stretch goal?
-acronymInput.addEventListener('input', function (e) {
-    console.log(e.data);
-    // passing the user's input to the acronym variable
-    // this isn't working with saved autocomplete text! Maybe just disable autocomplete
-    // for now and try to solve it later?!
-    acronym += e.data;
-})
 
 async function searchAcronym() {
     console.log('this is acronym', acronym);
@@ -49,9 +48,12 @@ async function searchAcronym() {
             
         if (match) {
             acronymResult.textContent = `The organisation name with the acronym ${correctAcronym} is ${org}.`;
+            // clear the search box
+            acronymInput.value = '';
         }
             else {
-                acronymResult.textContent = `There is no organisation matching ${correctAcronym}, please try again.`;
+                acronymResult.textContent = `There is no organisation matching ${acronym}, please try again.`;
+                acronymInput.value = '';
                 }
         }        
     } catch (error) {
@@ -72,3 +74,11 @@ async function searchAcronym() {
 //     acronymResult.textContent = 'There is no organisation matching that acronym, please try again.'
 //     console.log(`this didn't work`)
 // }
+
+// acronymInput.addEventListener('submit', function (e) {
+//     console.log(e.data);
+//     // non-character keys like 'delete' were being picked up as 
+//     if(e.data) {
+//         acronym += e.data;
+//     }
+// })
