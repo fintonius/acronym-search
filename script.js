@@ -50,10 +50,9 @@ async function searchAcronym() {
             acronymResult.textContent = `The organisation name with the acronym ${correctAcronym} is ${org}.`;
             // clear the search box
             acronymInput.value = '';
-        }
-            else {
-                acronymResult.textContent = `There is no organisation matching ${acronym}, please try again.`;
-                acronymInput.value = '';
+        } else {
+            acronymResult.textContent = `There is no organisation matching ${acronym}, please try again.`;
+            acronymInput.value = '';
                 }
         }        
     } catch (error) {
